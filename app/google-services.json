@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "982221211065",
+    "firebase_url": "https://ecgraph-a5a5b.firebaseio.com",
+    "project_id": "ecgraph-a5a5b",
+    "storage_bucket": "ecgraph-a5a5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982221211065:android:d0da3774557abe02",
+        "android_client_info": {
+          "package_name": "com.example.asus.ecgraph"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982221211065-vs2bgr12b5mu3848uja69oanf89hh8be.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.ecgraph",
+            "certificate_hash": "d46cc16afcb06b3ed4bc7e0064957026a200d241"
+          }
+        },
+        {
+          "client_id": "982221211065-9j3mkek4br04m82cfdbjn6auc46fgvgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBISlfwufeFYCF8zeoBft0GaUvp5nP8cV8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982221211065-9j3mkek4br04m82cfdbjn6auc46fgvgv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
