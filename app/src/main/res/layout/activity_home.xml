@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <Button
+        android:id="@+id/button_ecg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="135dp"
+        android:width="250dp"
+        android:height="70dp"
+        android:background="@drawable/curved_button"
+        android:text="@string/ecg1"
+        android:textSize="25dp"
+        android:textColor="#FFFF" />
+
+    <Button
+        android:id="@+id/button_ecg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:width="250dp"
+        android:height="70dp"
+        android:background="@drawable/curved_button"
+        android:text="@string/ecg2"
+        android:textSize="25dp"
+        android:textColor="#FFFF" />
+
+    <Button
+        android:id="@+id/button_pet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="133dp"
+        android:width="250dp"
+        android:height="70dp"
+        android:background="@drawable/curved_button"
+        android:text="@string/pet"
+        android:textSize="25dp"
+        android:textColor="#FFFF" />
+</RelativeLayout>

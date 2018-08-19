@@ -1,10 +1,12 @@
 package com.example.asus.ecgraph;
 
-import android.content.BroadcastReceiver;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -15,11 +17,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class EcgActivity extends AppCompatActivity {
 
     private DatabaseReference myRef;
     private FirebaseDatabase database;
@@ -27,12 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private LineChart chart;
     private List<Entry> entries;
     private ArrayList<Float> values;
+    private ProgressBar progressBar;
+    private TextView ecgTextView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_ecg_1);
 
         initialize();
 
@@ -43,12 +49,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void initialize(){
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("data");
+        String MACHINE_ID = getIntent().getStringExtra("ECG_MACHINE_ID");
+        myRef = database.getReference(MACHINE_ID);
         chart = (LineChart) findViewById(R.id.chart);
-        chart.setNoDataText("Loading...");
-        chart.setNoDataTextColor(R.color.colorPrimary);
+        progressBar = (ProgressBar) findViewById(R.id.progress_ecg1);
+        ecgTextView = (TextView) findViewById(R.id.ecg_1_text);
+        chart.setNoDataText("");
+//        chart.setNoDataTextColor(R.color.colorPrimary);
 
 
+//        if (MACHINE_ID == "ecg1")
+        ecgTextView.setText(MACHINE_ID);
+//        else ecgTextView.setText("ECG 2");
 
         entries = new ArrayList<>();
         values = new ArrayList<>();
@@ -77,8 +89,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "dipto's chart");
+        dataSet.setColor(Color.rgb(1, 1, 1));
+        dataSet.setDrawValues(false);
+        dataSet.setDrawCircles(false);
         LineData lineData = new LineData(dataSet);
         chart.setData(lineData);
+        chart.setPinchZoom(false);
+        chart.setDoubleTapToZoomEnabled(false);
+        chart.getLegend().setEnabled(false);
+        chart.getDescription().setEnabled(false);
+        chart.setVisibleXRangeMaximum(100);
         chart.invalidate();
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
