@@ -30,7 +30,6 @@ public class EcgActivity extends AppCompatActivity {
     private String rawData;
     private LineChart chart;
     private List<Entry> entries;
-    private ArrayList<Float> values;
     private ProgressBar progressBar;
     private TextView ecgTextView;
 
@@ -63,7 +62,6 @@ public class EcgActivity extends AppCompatActivity {
 //        else ecgTextView.setText("ECG 2");
 
         entries = new ArrayList<>();
-        values = new ArrayList<>();
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -76,6 +74,7 @@ public class EcgActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 
@@ -83,6 +82,7 @@ public class EcgActivity extends AppCompatActivity {
 
     private void createChart(){
         float xValue = 0;
+        entries.clear();
         for (String s : rawData.split(" ")){
             entries.add(new Entry(xValue, Float.parseFloat(s)));
             xValue += 1.2;
@@ -93,6 +93,7 @@ public class EcgActivity extends AppCompatActivity {
         dataSet.setDrawValues(false);
         dataSet.setDrawCircles(false);
         LineData lineData = new LineData(dataSet);
+        chart.clear();
         chart.setData(lineData);
         chart.setPinchZoom(false);
         chart.setDoubleTapToZoomEnabled(false);
